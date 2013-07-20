@@ -7,6 +7,8 @@ var fs = require('fs');
 app.get('/', function(request, response) {
   // response.send('Hello World!');
 
+    // this is the starting point 7/20/13 THJ
+
     var buf = fs.readFileSync("bitstarter.html");
     response.send(buf.toString());
 
