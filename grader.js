@@ -29,7 +29,7 @@ var CHECKSFILE_DEFAULT = "checks.json";
 
 // add restler 7/24/13
 var rest = require('restler');
-var URL_DEFAULT =  'http://google.com";
+var URL_DEFAULT =  "http://google.com";
 
 
 
@@ -73,7 +73,8 @@ if(require.main == module) {
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .option('-u, --url <url>', 'Path to URL', clone(assertFileExists), URL_DEFAULT)
         .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
+// var checkJson = checkHtmlFile(program.file, program.checks);
+    var checkJson = checkHtmlFile(rest.get(program.url), program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
 } else {
